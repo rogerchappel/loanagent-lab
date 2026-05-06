@@ -19,3 +19,8 @@ format and uses semantic versioning when versioned releases are published.
   `https://github.com/rogerchappel/loanagent-lab/releases/latest`
 
 Replace placeholder links once the first release tag exists.
+
+
+## 0.1.0 - Unreleased
+
+- Initial local-first synthetic loan agent lab MVP.
