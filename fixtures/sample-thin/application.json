@@ -1,0 +1,1 @@
+{ "id": "synthetic-thin-001", "synthetic": true, "applicant": { "name": "Casey Thinfile" }, "loan": { "product": "personal", "amount": 18000, "purpose": "home repair" }, "financials": { "annualIncome": 42000, "monthlyDebt": 2600, "creditScore": 575, "incomeStabilityMonths": 7 } }
