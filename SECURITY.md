@@ -56,3 +56,8 @@ Out of scope:
 ## Disclosure
 
 Coordinate disclosure with maintainers before publishing vulnerability details.
+
+
+## Data boundary
+
+Please do not submit real applicant data in issues, fixtures, PRs, screenshots, or discussions. Use minimal synthetic reproductions.
