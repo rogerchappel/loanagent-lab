@@ -1,0 +1,1 @@
+{ "id": "synthetic-review-001", "synthetic": true, "applicant": { "name": "Blake Review" }, "loan": { "product": "auto", "amount": 32000, "purpose": "vehicle" }, "financials": { "annualIncome": 72000, "monthlyDebt": 2850, "creditScore": 664, "incomeStabilityMonths": 15 } }
