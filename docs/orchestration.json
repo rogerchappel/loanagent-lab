@@ -1,0 +1,1 @@
+{ "name": "loanagent-lab", "mode": "local-first", "steps": ["load_fixture", "validate_application", "score_factors", "generate_trace", "render_reviewer_handoff"], "externalCalls": false, "syntheticByDefault": true }
