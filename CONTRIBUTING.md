@@ -77,3 +77,8 @@ If verification cannot be run, explain why and provide the exact command maintai
 ## Maintainer Review
 
 Maintainers may request narrower scope, clearer verification, additional tests, or safer defaults before merging.
+
+
+## LoanAgent Lab expectations
+
+Use synthetic data only. Add tests for every scoring or checklist change. Keep CLI output deterministic and local-first.
