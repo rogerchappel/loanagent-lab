@@ -1,0 +1,1 @@
+{ "id": "synthetic-good-001", "synthetic": true, "applicant": { "name": "Avery Sample", "demographics": { "note": "fairness test metadata excluded from scoring" } }, "loan": { "product": "personal", "amount": 24000, "purpose": "debt consolidation" }, "financials": { "annualIncome": 96000, "monthlyDebt": 1900, "creditScore": 742, "incomeStabilityMonths": 48 } }
