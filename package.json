@@ -4,7 +4,7 @@
   "description": "Local-first synthetic loan application agent lab for deterministic decision traces and reviewer handoffs.",
   "type": "module",
   "bin": {
-    "loanagent-lab": "./bin/loanagent-lab.js"
+    "loanagent-lab": "bin/loanagent-lab.js"
   },
   "main": "./src/index.js",
   "exports": {
@@ -16,7 +16,8 @@
     "fixtures",
     "docs",
     "README.md",
-    "LICENSE"
+    "LICENSE",
+    "SECURITY.md"
   ],
   "scripts": {
     "test": "node --test",
