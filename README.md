@@ -66,6 +66,13 @@ npm run release:check
 
 Run the narrower commands while iterating, then finish with the broadest available check before opening a PR.
 
+## Package contents
+
+The npm package allowlist includes the runtime files plus the public support
+documents needed for release review: `README.md`, `LICENSE`, `SECURITY.md`, `CHANGELOG.md`, `CONTRIBUTING.md`, `CODE_OF_CONDUCT.md`.
+Run `npm run package:smoke` or `npm pack --dry-run` before publishing to
+confirm those files are still present in the tarball.
+
 ## Contributing
 
 Small, reviewable PRs are welcome. Prefer synthetic fixtures, deterministic tests, and explicit safety boundaries. See [CONTRIBUTING.md](CONTRIBUTING.md).
