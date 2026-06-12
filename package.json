@@ -27,7 +27,7 @@
     "check": "node scripts/check.js",
     "build": "node scripts/build.js",
     "smoke": "node scripts/smoke.js",
-    "package:smoke": "npm pack --dry-run",
+    "package:smoke": "npm run build && npm pack --dry-run",
     "release:check": "npm test && npm run check && npm run build && npm run smoke && npm run package:smoke"
   },
   "keywords": [
