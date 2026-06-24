@@ -15,6 +15,7 @@
     "src",
     "fixtures",
     "docs",
+    "examples",
     "README.md",
     "LICENSE",
     "SECURITY.md",

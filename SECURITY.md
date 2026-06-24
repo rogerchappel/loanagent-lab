@@ -2,18 +2,13 @@
 
 ## Supported Versions
 
-Replace this section with the supported versions for `loanagent-lab`.
+`loanagent-lab` is pre-1.0. Security fixes target the latest `main` branch until
+versioned releases begin.
 
-Example:
-
-```md
 | Version | Supported |
 | --- | --- |
-| .x | Yes |
-| < .0 | No |
-```
-
-If the project does not publish versioned releases yet, say that clearly.
+| 0.x latest | Best effort |
+| Older 0.x | No |
 
 ## Reporting a Vulnerability
 
