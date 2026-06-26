@@ -6,7 +6,7 @@
   "bin": { "loanagent-lab": "./bin/loanagent-lab.js" },
   "main": "./src/index.js",
   "exports": { ".": "./src/index.js" },
-  "files": ["bin", "src", "fixtures", "docs", "README.md"],
+  "files": ["bin", "src", "fixtures", "docs", "README.md", "LICENSE"],
   "scripts": {
     "test": "node --test",
     "check": "node scripts/check.js",
@@ -18,5 +18,13 @@
   "keywords": ["loan", "agent", "compliance", "synthetic-data", "local-first", "cli"],
   "author": "Roger Chappel",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rogerchappel/loanagent-lab.git"
+  },
+  "bugs": {
+    "url": "https://github.com/rogerchappel/loanagent-lab/issues"
+  },
+  "homepage": "https://github.com/rogerchappel/loanagent-lab#readme",
   "engines": { "node": ">=20" }
 }
