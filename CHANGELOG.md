@@ -10,6 +10,10 @@ format and uses semantic versioning when versioned releases are published.
 ### Added
 
 - Initial project setup.
+- npm package allowlist includes fixtures, examples, docs, and support files
+  required to review a release-candidate install.
+- ReleaseBox smoke configuration now runs the full release check path before
+  dry-run packaging.
 
 ## Release Links
 
