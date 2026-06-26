@@ -8,6 +8,13 @@ A tiny local-first lab for synthetic loan-application agent traces. It is delibe
 npm install
 ```
 
+Install the CLI from npm after release:
+
+```sh
+npm install -g loanagent-lab
+loanagent-lab inspect fixtures/sample-good --format markdown --output out/sample-good
+```
+
 ## Quickstart
 
 ```sh
@@ -46,6 +53,7 @@ npm test
 npm run check
 npm run build
 npm run smoke
+npm pack --dry-run
 npm run package:smoke
 npm run release:check
 bash scripts/validate.sh
