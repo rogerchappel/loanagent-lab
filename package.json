@@ -3,21 +3,47 @@
   "version": "0.1.0",
   "description": "Local-first synthetic loan application agent lab for deterministic decision traces and reviewer handoffs.",
   "type": "module",
-  "bin": { "loanagent-lab": "./bin/loanagent-lab.js" },
+  "bin": {
+    "loanagent-lab": "bin/loanagent-lab.js"
+  },
   "main": "./src/index.js",
-  "exports": { ".": "./src/index.js" },
-  "files": ["bin", "src", "fixtures", "docs", "README.md", "LICENSE"],
+  "exports": {
+    ".": "./src/index.js"
+  },
+  "files": [
+    "bin",
+    "src",
+    "fixtures",
+    "docs",
+    "examples",
+    "README.md",
+    "LICENSE",
+    "SECURITY.md",
+    "CHANGELOG.md",
+    "CONTRIBUTING.md",
+    "CODE_OF_CONDUCT.md"
+  ],
   "scripts": {
     "test": "node --test",
     "check": "node scripts/check.js",
     "build": "node scripts/build.js",
     "smoke": "node scripts/smoke.js",
-    "package:smoke": "npm pack --dry-run",
+    "package:smoke": "npm run build && npm pack --dry-run",
     "release:check": "npm test && npm run check && npm run build && npm run smoke && npm run package:smoke"
   },
-  "keywords": ["loan", "agent", "compliance", "synthetic-data", "local-first", "cli"],
+  "keywords": [
+    "loan",
+    "agent",
+    "compliance",
+    "synthetic-data",
+    "local-first",
+    "cli"
+  ],
   "author": "Roger Chappel",
   "license": "MIT",
+  "engines": {
+    "node": ">=20"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/rogerchappel/loanagent-lab.git"
@@ -25,6 +51,5 @@
   "bugs": {
     "url": "https://github.com/rogerchappel/loanagent-lab/issues"
   },
-  "homepage": "https://github.com/rogerchappel/loanagent-lab#readme",
-  "engines": { "node": ">=20" }
+  "homepage": "https://github.com/rogerchappel/loanagent-lab#readme"
 }

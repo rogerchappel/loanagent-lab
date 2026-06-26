@@ -54,8 +54,34 @@ npm run check
 npm run build
 npm run smoke
 npm pack --dry-run
+npm run package:smoke
+npm run release:check
 bash scripts/validate.sh
 ```
+
+## Development
+
+Use the same local checks that back release readiness:
+
+```sh
+npm run check
+npm test
+npm run build
+npm run smoke
+npm run package:smoke
+npm run release:check
+```
+
+Run the narrower commands while iterating, then finish with the broadest available check before opening a PR.
+
+## Package contents
+
+The npm package allowlist includes the runtime files, fixtures, docs, examples,
+and the public support documents needed for release review: `README.md`,
+`LICENSE`, `SECURITY.md`, `CHANGELOG.md`, `CONTRIBUTING.md`, and
+`CODE_OF_CONDUCT.md`.
+Run `npm run package:smoke` or `npm pack --dry-run` before publishing to
+confirm those files are still present in the tarball.
 
 ## Contributing
 
@@ -64,3 +90,14 @@ Small, reviewable PRs are welcome. Prefer synthetic fixtures, deterministic test
 ## License
 
 MIT
+
+## Release readiness
+
+Before opening a release PR, run the same checks that CI runs:
+
+```sh
+npm run release:check
+npm pack --dry-run
+```
+
+The package smoke keeps the published tarball contents visible before tagging or publishing.
