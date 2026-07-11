@@ -37,6 +37,15 @@ console.log(report.trace.decision);
 - Emits a versioned agent decision trace.
 - Produces reviewer checklist handoffs.
 - Includes compliance and fair-lending caveats by default.
+## CLI Help Smoke
+
+Confirm the packaged command starts and prints its help text before relying on a release tarball or downstream automation:
+
+```bash
+node bin/loanagent-lab.js --help
+```
+
+The command should exit successfully, print the available options, and avoid reading project files or contacting external services.
 
 ## Safety
 
