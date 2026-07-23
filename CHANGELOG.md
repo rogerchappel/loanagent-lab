@@ -9,22 +9,16 @@ format and uses semantic versioning when versioned releases are published.
 
 ### Added
 
-- Initial project setup.
 - npm package allowlist includes fixtures, examples, docs, and support files
   required to review a release-candidate install.
 - ReleaseBox smoke configuration now runs the full release check path before
   dry-run packaging.
 
-## Release Links
+## [0.1.0] - 2026-05-06
 
-- Unreleased:
-  `https://github.com/rogerchappel/loanagent-lab/compare/...HEAD`
-- Latest release:
-  `https://github.com/rogerchappel/loanagent-lab/releases/latest`
+### Added
 
-Replace placeholder links once the first release tag exists.
+- Initial project setup for the local-first synthetic loan agent lab MVP.
 
-
-## 0.1.0 - Unreleased
-
-- Initial local-first synthetic loan agent lab MVP.
+[Unreleased]: https://github.com/rogerchappel/loanagent-lab/compare/v0.1.0...HEAD
+[0.1.0]: https://github.com/rogerchappel/loanagent-lab/releases/tag/v0.1.0
