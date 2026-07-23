@@ -4,15 +4,27 @@ A tiny local-first lab for synthetic loan-application agent traces. It is delibe
 
 ## Install
 
+The CLI is distributed through GitHub Releases; it is not currently published
+to the npm registry. Install the v0.1.0 release artifact into an isolated npm
+prefix:
+
 ```sh
-npm install
+mkdir loanagent-lab-cli && cd loanagent-lab-cli
+npm install --global --prefix ./install \
+  https://github.com/rogerchappel/loanagent-lab/releases/download/v0.1.0/loanagent-lab-0.1.0.tgz
+./install/bin/loanagent-lab --help
+./install/bin/loanagent-lab inspect \
+  ./install/lib/node_modules/loanagent-lab/fixtures/sample-good \
+  --format markdown --output ./out/sample-good
 ```
 
-Install the CLI from npm after release:
+To work from a source checkout instead:
 
 ```sh
-npm install -g loanagent-lab
-loanagent-lab inspect fixtures/sample-good --format markdown --output out/sample-good
+git clone https://github.com/rogerchappel/loanagent-lab.git
+cd loanagent-lab
+npm install
+npm test
 ```
 
 ## Quickstart
@@ -62,6 +74,7 @@ npm test
 npm run check
 npm run build
 npm run smoke
+npm run install:smoke
 npm pack --dry-run
 npm run package:smoke
 npm run release:check
