@@ -7,6 +7,12 @@ format and uses semantic versioning when versioned releases are published.
 
 ## [Unreleased]
 
+### Changed
+
+- Application validation now enforces documented identity fields and finite
+  numeric bounds before scoring or report generation.
+- The CLI now rejects unknown or incomplete options and unsupported formats.
+
 ### Added
 
 - npm package allowlist includes fixtures, examples, docs, and support files
