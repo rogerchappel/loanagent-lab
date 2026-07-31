@@ -49,6 +49,13 @@ console.log(report.trace.decision);
 - Emits a versioned agent decision trace.
 - Produces reviewer checklist handoffs.
 - Includes compliance and fair-lending caveats by default.
+
+Application JSON must include a nonempty ID, applicant name, loan product,
+loan amount, annual income, monthly debt, credit score, and income-stability
+months. See [the documented input bounds](docs/trace-schema.md#application-input).
+The CLI rejects unknown options, missing option values, and formats other than
+`json` or `markdown` before inspecting an application.
+
 ## CLI Help Smoke
 
 Confirm the packaged command starts and prints its help text before relying on a release tarball or downstream automation:
