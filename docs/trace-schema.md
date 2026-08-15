@@ -6,6 +6,14 @@ Each trace contains `schemaVersion`, `generatedAt`, `applicationId`, `decision`,
 
 The schema is designed for deterministic tests and reviewer handoffs, not automated real-world credit decisions.
 
+## Decision policy
+
+The default policy permits debt-to-income ratios through `0.55` for review.
+A ratio above `0.55` adds the `debt_to_income_above_review_ceiling` hard flag
+and forces a decline, even when the application's score and other metrics
+would otherwise qualify it for review. Review and approval decisions never
+carry hard flags.
+
 ## Application input
 
 Applications must contain these sections and fields:
