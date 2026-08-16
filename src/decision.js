@@ -8,6 +8,6 @@ export function decideApplication(app, policy = DEFAULT_DECISION_POLICY) {
   if (app.financials.creditScore < policy.minCreditScoreReview) hardFlags.push('credit_score_below_review_floor');
   let decision = DECISIONS.DECLINE;
   if (!hardFlags.length && scored.score >= policy.minApproveScore && scored.metrics.debtToIncome <= policy.maxDebtToIncomeApprove && app.financials.creditScore >= policy.minCreditScoreApprove) decision = DECISIONS.APPROVE;
-  else if (scored.score >= policy.minReviewScore && app.financials.creditScore >= policy.minCreditScoreReview) decision = DECISIONS.REVIEW;
+  else if (!hardFlags.length && scored.score >= policy.minReviewScore && app.financials.creditScore >= policy.minCreditScoreReview) decision = DECISIONS.REVIEW;
   return { schemaVersion: TRACE_SCHEMA_VERSION, generatedAt: new Date(0).toISOString(), applicationId: app.id, decision, score: scored.score, metrics: scored.metrics, factors: scored.factors, hardFlags, caveats: complianceCaveats(app), attribution: sourceAttribution() };
 }
