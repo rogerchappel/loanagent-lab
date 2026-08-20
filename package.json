@@ -28,9 +28,10 @@
     "check": "node scripts/check.js",
     "build": "node scripts/build.js",
     "smoke": "node scripts/smoke.js",
+    "docs:smoke": "node scripts/docs-smoke.js",
     "install:smoke": "node scripts/install-smoke.js",
     "package:smoke": "npm run build && npm pack --dry-run",
-    "release:check": "npm test && npm run check && npm run build && npm run smoke && npm run install:smoke && npm run package:smoke"
+    "release:check": "npm test && npm run check && npm run build && npm run smoke && npm run docs:smoke && npm run install:smoke && npm run package:smoke"
   },
   "keywords": [
     "loan",
