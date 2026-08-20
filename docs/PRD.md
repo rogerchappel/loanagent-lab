@@ -66,7 +66,7 @@ Likely buildable as a deterministic CLI/library/demo if scoped to fixtures, loca
 
 ```bash
 loanagent-lab --help
-loanagent-lab inspect ./fixtures/sample --output ./out
+loanagent-lab inspect ./fixtures/sample-good --output ./out
 ```
 
 ## Verification
