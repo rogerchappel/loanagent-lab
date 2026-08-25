@@ -31,7 +31,7 @@ if (!readme.includes(expectedUrl)) {
   throw new Error(`README must document the current GitHub release artifact: ${expectedUrl}`);
 }
 
-const directory = await mkdtemp(join(tmpdir(), 'loanagent-lab-install-'));
+const directory = await mkdtemp(join(tmpdir(), 'loanagent-lab install-'));
 try {
   const pack = await run('npm', ['pack', '--json', '--pack-destination', directory]);
   const [{ filename }] = JSON.parse(pack.stdout);
@@ -41,6 +41,11 @@ try {
 
   const help = await run(cli, ['--help']);
   if (!help.stdout.includes('loanagent-lab')) throw new Error('installed CLI help is invalid');
+
+  const fixtures = await run(cli, ['fixtures']);
+  for (const fixture of ['sample-good', 'sample-review', 'sample-thin']) {
+    if (!fixtures.stdout.includes(fixture)) throw new Error(`installed CLI fixtures omitted ${fixture}`);
+  }
 
   const output = join(directory, 'output');
   await run(cli, ['inspect', 'fixtures/sample-good', '--format', 'markdown', '--output', output]);
