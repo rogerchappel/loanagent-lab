@@ -6,7 +6,7 @@ import { writeJson } from './utils.js';
 import { mkdir, writeFile } from 'node:fs/promises';
 export async function inspect(input, options = {}) {
   const app = await loadApplication(input);
-  const trace = decideApplication(app, options.policy);
+  const trace = decideApplication(app, options.policy, options.now);
   const report = buildReport(app, trace);
   if (options.output) {
     await mkdir(options.output, { recursive: true });
