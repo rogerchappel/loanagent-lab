@@ -6,6 +6,12 @@ Each trace contains `schemaVersion`, `generatedAt`, `applicationId`, `decision`,
 
 The schema is designed for deterministic tests and reviewer handoffs, not automated real-world credit decisions.
 
+## generatedAt
+
+`generatedAt` is the ISO-8601 UTC timestamp at which the decision trace was generated (for example `2026-08-26T13:00:00.000Z`). It records the real generation time for reviewer handoffs and audit trails.
+
+`decideApplication` accepts an injectable `now` clock as its third argument, defaulting to `() => new Date().toISOString()`. `inspect` forwards `options.now` the same way, so deterministic tests can pin an exact timestamp while normal runs record the actual generation time.
+
 ## Decision policy
 
 The default policy permits debt-to-income ratios through `0.55` for review.
