@@ -7,6 +7,12 @@ format and uses semantic versioning when versioned releases are published.
 
 ## [Unreleased]
 
+### Fixed
+
+- Decision traces now carry a real generation timestamp (`generatedAt`)
+  instead of the epoch sentinel; `decideApplication` accepts an injectable
+  `now` clock and `inspect` forwards `options.now` for deterministic tests.
+
 ### Changed
 
 - Application validation now enforces documented identity fields and finite
