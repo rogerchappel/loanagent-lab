@@ -36,3 +36,19 @@ test('declines a high-scoring application above the debt-to-income review ceilin
   assert.equal(trace.decision, 'decline');
   assert.deepEqual(trace.hardFlags, ['debt_to_income_above_review_ceiling']);
 });
+
+test('uses injected clock value verbatim for generatedAt', () => {
+  const trace = decideApplication(applicationAtDebtToIncome(0.3), undefined, () => '2026-08-26T00:00:00.000Z');
+
+  assert.equal(trace.generatedAt, '2026-08-26T00:00:00.000Z');
+});
+
+test('default generatedAt is a current ISO timestamp within the run window', () => {
+  const before = Date.now();
+  const trace = decideApplication(applicationAtDebtToIncome(0.3));
+  const after = Date.now();
+
+  assert.match(trace.generatedAt, /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\.\d{3}Z$/);
+  const generated = Date.parse(trace.generatedAt);
+  assert.ok(generated >= before - 1000 && generated <= after + 1000, `generatedAt ${trace.generatedAt} outside run window [${before}, ${after}]`);
+});
