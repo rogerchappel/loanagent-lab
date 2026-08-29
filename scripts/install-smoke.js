@@ -1,4 +1,4 @@
-import { mkdtemp, readFile, rm } from 'node:fs/promises';
+import { mkdir, mkdtemp, readFile, rm } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { spawn } from 'node:child_process';
@@ -38,17 +38,28 @@ try {
   const prefix = join(directory, 'install');
   await run('npm', ['install', '--global', '--prefix', prefix, join(directory, filename)]);
   const cli = join(prefix, 'bin', 'loanagent-lab');
+  const installedPackage = join(prefix, 'lib', 'node_modules', pkg.name);
+  const installedFixture = join(installedPackage, 'fixtures', 'sample-good');
+  const unrelatedCwd = join(directory, 'unrelated cwd');
+  await mkdir(unrelatedCwd);
 
-  const help = await run(cli, ['--help']);
+  const application = JSON.parse(await readFile(join(installedFixture, 'application.json'), 'utf8'));
+  if (application.id !== 'synthetic-good-001') {
+    throw new Error('installed sample-good fixture is missing or invalid');
+  }
+
+  const help = await run(cli, ['--help'], { cwd: unrelatedCwd });
   if (!help.stdout.includes('loanagent-lab')) throw new Error('installed CLI help is invalid');
 
-  const fixtures = await run(cli, ['fixtures']);
+  const fixtures = await run(cli, ['fixtures'], { cwd: unrelatedCwd });
   for (const fixture of ['sample-good', 'sample-review', 'sample-thin']) {
     if (!fixtures.stdout.includes(fixture)) throw new Error(`installed CLI fixtures omitted ${fixture}`);
   }
 
   const output = join(directory, 'output');
-  await run(cli, ['inspect', 'fixtures/sample-good', '--format', 'markdown', '--output', output]);
+  await run(cli, ['inspect', installedFixture, '--format', 'markdown', '--output', output], {
+    cwd: unrelatedCwd,
+  });
   await readFile(join(output, 'synthetic-good-001.report.md'), 'utf8');
   await readFile(join(output, 'synthetic-good-001.trace.json'), 'utf8');
   console.log('install smoke ok');
