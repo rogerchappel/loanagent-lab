@@ -18,6 +18,9 @@ npm install --global --prefix ./install \
   --format markdown --output ./out/sample-good
 ```
 
+The fixture path above is rooted in the installed package, so inspection does
+not depend on a source checkout or its working directory.
+
 To work from a source checkout instead:
 
 ```sh
