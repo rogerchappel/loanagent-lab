@@ -2,7 +2,10 @@
 
 Each trace contains `schemaVersion`, `generatedAt`, `applicationId`, `decision`,
 `score`, `metrics`, `factors`, `hardFlags`, `caveats`, `attribution`, and
-`reviewerChecklist`.
+`reviewerChecklist`. The exported `traceSchema()` function returns a JSON Schema
+(Draft 2020-12) describing these fields, including nested metric, factor, and
+checklist item types; object shapes reject undeclared properties. The generated
+trace can therefore be validated by a JSON Schema Draft 2020-12 validator.
 
 The schema is designed for deterministic tests and reviewer handoffs, not automated real-world credit decisions.
 
