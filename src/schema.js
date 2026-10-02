@@ -41,5 +41,51 @@ export function validateApplication(app) {
   return app;
 }
 export function traceSchema() {
-  return { type: 'object', required: ['schemaVersion', 'generatedAt', 'applicationId', 'decision', 'score', 'metrics', 'factors', 'hardFlags', 'caveats', 'attribution', 'reviewerChecklist'] };
+  return {
+    $schema: 'https://json-schema.org/draft/2020-12/schema',
+    type: 'object',
+    additionalProperties: false,
+    required: ['schemaVersion', 'generatedAt', 'applicationId', 'decision', 'score', 'metrics', 'factors', 'hardFlags', 'caveats', 'attribution', 'reviewerChecklist'],
+    properties: {
+      schemaVersion: { type: 'string', const: '1.0.0' },
+      generatedAt: { type: 'string', format: 'date-time' },
+      applicationId: { type: 'string', minLength: 1 },
+      decision: { type: 'string', enum: ['approve', 'review', 'decline'] },
+      score: { type: 'number', minimum: 0, maximum: 100 },
+      metrics: {
+        type: 'object', additionalProperties: false,
+        required: ['monthlyIncome', 'debtToIncome', 'loanToIncome'],
+        properties: {
+          monthlyIncome: { type: 'number', minimum: 0 },
+          debtToIncome: { type: 'number', minimum: 0 },
+          loanToIncome: { type: 'number', minimum: 0 }
+        }
+      },
+      factors: {
+        type: 'array', items: {
+          type: 'object', additionalProperties: false,
+          required: ['name', 'points', 'evidence'],
+          properties: {
+            name: { type: 'string', minLength: 1 },
+            points: { type: 'number' },
+            evidence: { type: 'string' }
+          }
+        }
+      },
+      hardFlags: { type: 'array', items: { type: 'string' } },
+      caveats: { type: 'array', items: { type: 'string' } },
+      attribution: { type: 'string', minLength: 1 },
+      reviewerChecklist: {
+        type: 'array', items: {
+          type: 'object', additionalProperties: false,
+          required: ['id', 'label', 'required'],
+          properties: {
+            id: { type: 'string', minLength: 1 },
+            label: { type: 'string', minLength: 1 },
+            required: { type: 'boolean' }
+          }
+        }
+      }
+    }
+  };
 }
